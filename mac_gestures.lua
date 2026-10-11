@@ -16,6 +16,8 @@ local config = {
   -- Past this fraction, lifting the fingers finishes the switch.
   -- 0.5 is the middle of the screen. Below it, the swipe springs back.
   cancel_ratio = 0.5,
+  -- Leftover travel after you lift, in deciseconds. 3.5 is 350ms.
+  swipe_speed = 3.5,
   -- Bind three fingers up only after an overview plugin is installed.
   overview = false,
 }
@@ -32,6 +34,17 @@ hl.config({
     workspace_swipe_distance = config.distance,
     workspace_swipe_cancel_ratio = config.cancel_ratio,
   },
+})
+
+-- Without this, Hyprland jumps the rest of the way the moment the fingers lift.
+-- The same slide is what Super+number uses to change workspace.
+hl.curve("macSwipe", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
+hl.animation({
+  leaf = "workspaces",
+  enabled = true,
+  speed = config.swipe_speed,
+  bezier = "macSwipe",
+  style = "slide",
 })
 
 hl.gesture({
