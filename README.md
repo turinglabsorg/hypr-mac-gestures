@@ -2,7 +2,7 @@
 
 Three-finger trackpad gestures for Hyprland, in the direction macOS uses.
 
-Hyprland 0.55 and newer already follows the fingers one-to-one. This module turns that swipe on and keeps it inside the workspaces you already have. It is a Lua module loaded by your config, not a hyprpm C++ plugin.
+Hyprland 0.55 and newer tracks the swipe for as long as your fingers are down. This module turns that on and keeps it inside the workspaces you already have. With the default distance, 200px of finger travel covers the screen. It is a Lua module loaded by your config, not a hyprpm C++ plugin.
 
 ## Gestures
 
@@ -39,6 +39,7 @@ The `config` table at the top of `mac_gestures.lua`:
 
 | Field | Default | Meaning |
 | --- | --- | --- |
+| `fingers` | `3` | Fingers on the trackpad. |
 | `invert` | `true` | The workspace follows your fingers, like a macOS natural swipe. |
 | `create_new` | `false` | Stay on workspaces that already exist. |
 | `forever` | `false` | One neighboring workspace per swipe. `true` lets one long swipe cross several. |
