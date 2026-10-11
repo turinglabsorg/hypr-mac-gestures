@@ -11,7 +11,7 @@ Hyprland 0.55 and newer already follows the fingers one-to-one. This module turn
 | 3 | left or right | Move to the neighboring workspace. The desktop follows your fingers. |
 | 3 | up | Unbound. Hyprland has no Mission Control-style overview. |
 
-One swipe moves one workspace. Swiping past the last workspace does not create an empty one.
+One swipe moves one workspace. The desktop follows your fingers. Lift past the middle of the screen and the switch finishes on its own. Lift before that and it springs back. Swiping past the last workspace does not create an empty one.
 
 ## Install
 
@@ -40,6 +40,8 @@ The `config` table at the top of `mac_gestures.lua`:
 | `invert` | `true` | The workspace follows your fingers, like a macOS natural swipe. |
 | `create_new` | `false` | Stay on workspaces that already exist. |
 | `forever` | `false` | One neighboring workspace per swipe. `true` lets one long swipe cross several. |
+| `distance` | `200` | Finger travel that drags a workspace across the whole screen. |
+| `cancel_ratio` | `0.5` | Lift past this fraction and the switch completes. Below it, the swipe springs back. |
 | `overview` | `false` | Bind three fingers up. Leave this off until an overview plugin is installed. |
 
 ## Overview

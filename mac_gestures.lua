@@ -10,6 +10,12 @@ local config = {
   create_new = false,
   -- One neighboring workspace per swipe.
   forever = false,
+  -- Finger travel, in px, that drags the workspace across the whole screen.
+  -- Lower so a normal swipe can reach the halfway point.
+  distance = 200,
+  -- Past this fraction, lifting the fingers finishes the switch.
+  -- 0.5 is the middle of the screen. Below it, the swipe springs back.
+  cancel_ratio = 0.5,
   -- Bind three fingers up only after an overview plugin is installed.
   overview = false,
 }
@@ -23,6 +29,8 @@ hl.config({
     workspace_swipe_invert = config.invert,
     workspace_swipe_create_new = config.create_new,
     workspace_swipe_forever = config.forever,
+    workspace_swipe_distance = config.distance,
+    workspace_swipe_cancel_ratio = config.cancel_ratio,
   },
 })
 
